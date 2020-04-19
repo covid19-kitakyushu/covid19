@@ -5,13 +5,13 @@
         <li>
           {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
         </li>
-        <li>
+        <!--<li>
           {{
             $t(
               '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
             )
           }}
-        </li>
+        </li>-->
       </ul>
       <data-selector
         v-model="dataKind"
@@ -106,6 +106,9 @@
         :unit="displayInfo.unit"
       />
     </template>
+    <template v-slot:footer>
+      <open-data-link v-show="url" :url="url" />
+    </template>
   </data-view>
 </template>
 
@@ -118,9 +121,9 @@ import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
-
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
 }
@@ -139,7 +142,6 @@ type Methods = {
   eachArraySum: (chartDataArray: number[][]) => number[]
   onClickLegend: (i: number) => void
 }
-
 type Computed = {
   displayInfo: {
     lText: string
@@ -159,7 +161,6 @@ type Computed = {
     [key: number]: number
   }[]
 }
-
 type Props = {
   title: string
   titleId: string
@@ -170,10 +171,10 @@ type Props = {
   labels: string[]
   dataLabels: string[] | TranslateResult[]
   unit: string
+  url: string
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
-
 const options: ThisTypedComponentOptionsWithRecordProps<
   Vue,
   Data,
@@ -184,7 +185,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
   props: {
     title: {
       type: String,
@@ -225,6 +226,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       default: ''
     },
+    url: {
+      type: String,
+      required: false,
+      default: ''
+    },
     scrollPlugin: {
       type: Array,
       default: () => scrollPlugin
@@ -248,7 +254,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
           sText: `${this.$t('{date}の合計', {
             date: this.labels[this.labels.length - 1]
-          })}（${this.$t('医療機関が保険適用で行った検査は含まれていない')}）`,
+          })}` /* （${this.$t('医療機関が保険適用で行った検査は含まれていない')}）` */,
           unit: this.unit
         }
       }
@@ -354,7 +360,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                   tooltipItem.index!
                 ].toLocaleString()
               }
-
               return `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
@@ -611,14 +616,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     const barElement = barChart.$el
     const canvas = barElement.querySelector('canvas')
     const labelledbyId = `${this.titleId}-graph`
-
     if (canvas) {
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
   }
 }
-
 export default Vue.extend(options)
 </script>
 
@@ -656,7 +659,6 @@ export default Vue.extend(options)
     }
   }
 }
-
 .DataView {
   &Desc {
     margin-top: 10px;
