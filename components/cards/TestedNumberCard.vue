@@ -10,6 +10,7 @@
       :labels="inspectionsLabels"
       :unit="$t('件.tested')"
       :data-labels="inspectionsDataLabels"
+      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
     >
       <!-- 件.tested = 検査数
       <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
