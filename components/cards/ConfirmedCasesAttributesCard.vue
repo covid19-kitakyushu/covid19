@@ -9,7 +9,7 @@
         :date="Data.patients.date"
         :info="sumInfoOfPatients"
         :url="
-          'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+          'https://ckan.open-governmentdata.org/dataset/401005_kitakyushu_covid19_patients'
         "
         :source="$t('オープンデータを入手')"
         :custom-sort="customSort"
