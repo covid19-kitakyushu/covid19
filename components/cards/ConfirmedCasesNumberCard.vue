@@ -11,18 +11,7 @@
         'https://ckan.open-governmentdata.org/dataset/401005_kitakyushu_covid19_test_count'
       "
     >
-      <template v-slot:description>
-        <ul>
-          <li>
-            {{ $t('（注）医療機関が保険適用で行った検査も含む') }}
-          </li>
-          <li>
-            {{
-              $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
-            }}
-          </li>
-        </ul>
-      </template>
+      <template v-slot:description />
     </time-bar-chart>
   </v-col>
 </template>
