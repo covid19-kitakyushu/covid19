@@ -1,9 +1,29 @@
 {
-    "newsItems": [
-        {
-            "date": "2020\/04\/13",
-            "url": "https:\/\/www.city.kitakyushu.lg.jp\/index.html",
-            "text": "新型コロナウイルス感染拡大にかかる緊急事態措置について"
-        }
-    ]
+ "newsItems": [
+  {
+   "date": "2020\/04\/21",
+   "url": "https:\/\/www.city.kitakyushu.lg.jp\/soumu\/333_00003.html",
+   "text": "布製マスクの全戸配布について"
+  },
+  {
+   "date": "2020\/04\/16",
+   "url": "https:\/\/www.city.kitakyushu.lg.jp\/soumu\/k15700105.html",
+   "text": "市長メッセージ（4月16日・北九州市独自の緊急経済支援策について）"
+  },
+  {
+   "date": "2020\/04\/15",
+   "url": "https:\/\/www.city.kitakyushu.lg.jp\/soumu\/333_00002.html",
+   "text": "北九州市新型コロナウイルス相談ナビダイヤルを開設しています"
+  },
+  {
+   "date": "2020\/04\/15",
+   "url": "https:\/\/www.city.kitakyushu.lg.jp\/ho-huku\/18901196.html",
+   "text": "「北九州市新型コロナウイルス相談ナビダイヤル」を開設しました"
+  },
+  {
+   "date": "2020\/04\/13",
+   "url": "https:\/\/www.city.kitakyushu.lg.jp\/soumu\/k15700104.html",
+   "text": "新型コロナウイルス感染拡大にかかる緊急事態措置について"
+  }
+ ]
 }
