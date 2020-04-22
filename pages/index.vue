@@ -31,6 +31,8 @@
       <confirmed-cases-attributes-card />
       <!-- 検査実施件数 -->
       <tested-number-card />
+      <!-- コールセンター件数 -->
+      <telephone-advisory-reports-number-card />
     </v-row>
     <v-divider />
   </div>
@@ -48,6 +50,7 @@ import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsC
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
@@ -58,7 +61,8 @@ export default Vue.extend({
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
-    TestedNumberCard
+    TestedNumberCard,
+    TelephoneAdvisoryReportsNumberCard
   },
   data() {
     const data = {

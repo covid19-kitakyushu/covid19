@@ -10,20 +10,12 @@
       :labels="inspectionsLabels"
       :unit="$t('件.tested')"
       :data-labels="inspectionsDataLabels"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+      :url="
+        'https://ckan.open-governmentdata.org/dataset/401005_kitakyushu_covid19_test_count'
+      "
     >
       <!-- 件.tested = 検査数
       <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
-        {{
-          $t(
-            '（注）医療機関が保険適用で行った検査については、４月１５日分までを計上'
-          )
-        }}<br />
-        {{
-          $t(
-            '（毎週金曜日に、前週木曜日から当該週水曜日までの日々の件数を反映）'
-          )
-        }}
         <br />
         {{ $t('※1: 疑い例・接触者調査') }}
         <br />
