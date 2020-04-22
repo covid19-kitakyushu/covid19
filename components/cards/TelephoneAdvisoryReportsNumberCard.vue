@@ -7,7 +7,9 @@
       :chart-data="contactsGraph"
       :date="Data.contacts.date"
       :unit="$t('件.reports')"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000071'"
+      :url="
+        'https://ckan.open-governmentdata.org/dataset/401005_kitakyushu_covid19_call_center'
+      "
     />
     <!-- 件.reports = 窓口相談件数 -->
   </v-col>
