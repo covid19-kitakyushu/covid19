@@ -51,7 +51,7 @@
       <footer class="SideNavigation-Footer">
         <div class="SideNavigation-Social">
           <a
-            href="https://page.line.me/zng7240n/"
+            href="https://page.line.me/zng7240n"
             target="_blank"
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
@@ -62,7 +62,7 @@
             </picture>
           </a>
           <a
-            href="https://twitter.com/city_kitakyushu/"
+            href="https://twitter.com/city_kitakyushu"
             target="_blank"
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
