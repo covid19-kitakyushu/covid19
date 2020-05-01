@@ -27,12 +27,6 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <time
-            class="WhatsNew-list-item-anchor-time px-2"
-            :datetime="formattedDate(item.date)"
-          >
-            {{ formattedDateForDisplay(item.date) }}
-          </time>
           <span class="WhatsNew-list-item-anchor-link">
             {{ item.text }}
             <v-icon
@@ -51,7 +45,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import ExternalLink from '@/components/ExternalLink.vue'
 
 import {
   convertDateByCountryPreferTimeFormat,
@@ -59,7 +52,6 @@ import {
 } from '@/utils/formatDate'
 
 export default Vue.extend({
-  components: { ExternalLink },
   props: {
     items: {
       type: Array,
@@ -115,11 +107,6 @@ export default Vue.extend({
       &:hover {
         background-color: $white;
         border-radius: 4px;
-      }
-
-      .ExternalLink {
-        color: $gray-2 !important;
-        text-decoration: none;
       }
 
       > span {
