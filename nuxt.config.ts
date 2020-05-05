@@ -23,7 +23,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stopcovid19.metro.kitakyusyu.jp'
+        content: 'https://stopcovid19-kitakyusyu.jp'
       },
       {
         hid: 'twitter:card',
@@ -33,17 +33,17 @@ const config: Configuration = {
       {
         hid: 'twitter:site',
         name: 'twitter:site',
-        content: '@tokyo_bousai'
+        content: '@city_kitakyushu'
       },
       {
         hid: 'twitter:creator',
         name: 'twitter:creator',
-        content: '@tokyo_bousai'
+        content: '@city_kitakyushu'
       },
       {
         hid: 'fb:app_id',
         property: 'fb:app_id',
-        content: '2879625188795443'
+        content: '166197104765804'
       },
       {
         hid: 'note:card',
