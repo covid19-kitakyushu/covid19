@@ -173,7 +173,7 @@ export default Vue.extend({
         },
         {
           title: this.$t('お問い合わせ先一覧'),
-          link: this.localePath('/contacts')
+          link: 'https://www.city.kitakyushu.lg.jp/soumu/333_00002.html'
         },
         {
           title: this.$t('北九州市ホームページ'),
