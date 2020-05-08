@@ -30,6 +30,7 @@ jobs:
           cd $GITHUB_WORKSPACE
           cp -f ./data_setup/data.json ./data/data.json
           cp -f ./data_setup/news.json ./data/news.json
+          rm -rf data_setup
       - name: Create Pull Request @ deploy/resources
         uses: peter-evans/create-pull-request@v2
         with:
