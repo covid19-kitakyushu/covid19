@@ -30,5 +30,6 @@ jobs:
           rm -rf data_setup
           git config --global user.email secrets.USER_EMAIL
           git config --global user.name USER_NAME
+          git add .
           git commit -m 'test'
           git push origin deploy/resources
