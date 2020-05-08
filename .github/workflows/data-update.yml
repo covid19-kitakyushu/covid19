@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: '10.x'
       - name: clone
-        run: git clone --depth 1 https://github.com/covid19-kitakyushu/covid19-data-updater.git data_setup
+        run: git clone --depth 1 https://${GITHUB_TOKEN}@github.com/covid19-kitakyushu/covid19-data-updater.git data_setup
       - name: npm install
         run: npm install
       - name: update
