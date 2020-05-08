@@ -28,5 +28,7 @@ jobs:
           cp -f ./data_setup/data.json ./data/data.json
           cp -f ./data_setup/news.json ./data/news.json
           rm -rf data_setup
+          git config --global user.email secrets.USER_EMAIL
+          git config --global user.name USER_NAME
           git commit -m 'test'
           git push origin deploy/resources
