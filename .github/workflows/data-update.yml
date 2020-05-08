@@ -21,11 +21,10 @@ jobs:
         run: git clone --depth 1 https://github.com/covid19-kitakyushu/covid19-data-updater.git data_setup
       - name: npm install
         run: |
+          cd $GITHUB_WORKSPACE/data_setup
           npm install
-          npm install iconv-lite
       - name: update
         run: |
-          cd $GITHUB_WORKSPACE/data_setup
           node main.js
       - name: copy json
         run: |
