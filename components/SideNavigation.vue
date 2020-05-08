@@ -125,10 +125,14 @@
         </div>
         <div class="SideNavigation-Footer">
           <div class="SideNavigation-organization">
-            <a href="http://www.houyou.co.jp/" target="_blank" rel="noopener">
-              <img src="/logo-houyou.png" alt="Houyou" />
+            <a
+              href="https://www.ksrp.or.jp/fais/"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="/logo-fais.png" alt="FAIS" />
             </a>
-            Houyou株式会社
+            FAIS 北九州産業学術推進機構
           </div>
         </div>
         <div class="SideNavigation-Footer">
@@ -137,6 +141,14 @@
               <img src="/logo-froide.png" alt="フロイデ" />
             </a>
             フロイデ株式会社
+          </div>
+        </div>
+        <div class="SideNavigation-Footer">
+          <div class="SideNavigation-organization">
+            <a href="http://www.houyou.co.jp/" target="_blank" rel="noopener">
+              <img src="/logo-houyou.png" alt="Houyou" />
+            </a>
+            Houyou株式会社
           </div>
         </div>
         <div class="SideNavigation-Footer">
@@ -406,7 +418,7 @@ export default Vue.extend({
 }
 
 .SideNavigation-organization {
-  margin-left: 30px;
+  margin-left: 20px;
   img {
     margin-right: 10px;
   }
