@@ -31,5 +31,5 @@ jobs:
           git config --global user.email secrets.USER_EMAIL
           git config --global user.name USER_NAME
           git add .
-          git commit -m 'test'
+          git commit -m 'UPDATE DATE'
           git push origin deploy/resources
