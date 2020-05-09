@@ -114,7 +114,7 @@
           <br />
           <div class="SideNavigation-organization">
             <a
-              href="https://www.code4kitakyushu.org/"
+              href="http://www.code4kitakyushu.org/"
               target="_blank"
               rel="noopener"
             >
