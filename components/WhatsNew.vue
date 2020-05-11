@@ -7,16 +7,17 @@
         </v-icon>
         {{ $t('最新のお知らせ') }}
       </h3>
+      <!--
       <span class="WhatsNew-link-to-emergency-page">
         <v-icon size="20" class="WhatsNew-link-to-emergency-page-icon">
           mdi-bullhorn
         </v-icon>
         <external-link
-          url="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
-        >
-          {{ $t('東京都緊急事態措置について') }}
+          url="https://www.city.kitakyushu.lg.jp/soumu/k15700104.html">
+          {{ $t('北九州市緊急事態措置について') }}
         </external-link>
       </span>
+      -->
     </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
@@ -26,12 +27,6 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <time
-            class="WhatsNew-list-item-anchor-time px-2"
-            :datetime="formattedDate(item.date)"
-          >
-            {{ formattedDateForDisplay(item.date) }}
-          </time>
           <span class="WhatsNew-list-item-anchor-link">
             {{ item.text }}
             <v-icon
@@ -50,7 +45,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import ExternalLink from '@/components/ExternalLink.vue'
 
 import {
   convertDateByCountryPreferTimeFormat,
@@ -58,7 +52,6 @@ import {
 } from '@/utils/formatDate'
 
 export default Vue.extend({
-  components: { ExternalLink },
   props: {
     items: {
       type: Array,
@@ -114,11 +107,6 @@ export default Vue.extend({
       &:hover {
         background-color: $white;
         border-radius: 4px;
-      }
-
-      .ExternalLink {
-        color: $gray-2 !important;
-        text-decoration: none;
       }
 
       > span {
