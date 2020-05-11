@@ -95,6 +95,70 @@
             </picture>
           </a>
         </div>
+        <div class="SideNavigation-Footer">
+          協力：
+          <br />
+          <div class="SideNavigation-organization">
+            <a
+              href="https://www.city.kitakyushu.lg.jp/"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="/logo-kitakyushu.png" alt="北九州市" />
+            </a>
+            北九州市
+          </div>
+        </div>
+        <div class="SideNavigation-Footer">
+          運営 (50音順)：
+          <br />
+          <div class="SideNavigation-organization">
+            <a
+              href="http://www.code4kitakyushu.org/"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="/logo-code4Kitakyushu.png" alt="Code for Kitakyushu" />
+            </a>
+            Code for Kitakyushu
+          </div>
+        </div>
+        <div class="SideNavigation-Footer">
+          <div class="SideNavigation-organization">
+            <a
+              href="https://www.ksrp.or.jp/fais/"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="/logo-fais.png" alt="FAIS" />
+            </a>
+            FAIS 北九州産業学術推進機構
+          </div>
+        </div>
+        <div class="SideNavigation-Footer">
+          <div class="SideNavigation-organization">
+            <a href="https://froide.co.jp/" target="_blank" rel="noopener">
+              <img src="/logo-froide.png" alt="フロイデ" />
+            </a>
+            フロイデ株式会社
+          </div>
+        </div>
+        <div class="SideNavigation-Footer">
+          <div class="SideNavigation-organization">
+            <a href="http://www.houyou.co.jp/" target="_blank" rel="noopener">
+              <img src="/logo-houyou.png" alt="Houyou" />
+            </a>
+            Houyou株式会社
+          </div>
+        </div>
+        <div class="SideNavigation-Footer">
+          <div class="SideNavigation-organization">
+            <a href="https://www.lac.co.jp/" target="_blank" rel="noopener">
+              <img src="/logo-lac.png" alt="ラック" />
+            </a>
+            株式会社ラック
+          </div>
+        </div>
         <small class="SideNavigation-Copyright">
           {{ $t('このサイトの内容物は') }}
           <a
@@ -351,6 +415,13 @@ export default Vue.extend({
 
 .SideNavigation-Footer {
   padding-top: 20px;
+}
+
+.SideNavigation-organization {
+  margin-left: 20px;
+  img {
+    margin-right: 10px;
+  }
 }
 
 .SideNavigation-Social {
