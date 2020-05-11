@@ -17,7 +17,7 @@ jobs:
           ref: development
           path: development
       - run: |
-          cp -rf resources/data/* development/data/
+          cp -rf resources/data/data.json development/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
@@ -43,7 +43,7 @@ jobs:
           ref: staging
           path: staging
       - run: |
-          cp -rf resources/data/* staging/data/
+          cp -rf resources/data/data.json staging/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
@@ -69,7 +69,7 @@ jobs:
           ref: master
           path: master
       - run: |
-          cp -rf resources/data/* master/data/
+          cp -rf resources/data/data.json master/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
