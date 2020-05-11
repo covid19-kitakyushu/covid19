@@ -25,7 +25,7 @@ jobs:
           npm install
           node main.js
       - name: push
-        if: hashFiles($GITHUB_WORKSPACE/data_setup/data.json) != hashFiles($GITHUB_WORKSPACE/data/data.json)
+        if: hashFiles(./data_setup/data.json) != hashFiles(./data/data.json)
         run: |
           cd $GITHUB_WORKSPACE
           cp -f ./data_setup/data.json ./data/data.json
