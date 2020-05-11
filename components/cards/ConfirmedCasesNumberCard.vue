@@ -8,7 +8,7 @@
       :date="Data.patients.date"
       :unit="$t('人')"
       :url="
-        'https://ckan.open-governmentdata.org/dataset/401005_kitakyushu_covid19_test_count'
+        'https://ckan.open-governmentdata.org/dataset/401005_kitakyushu_covid19_patients'
       "
     >
       <template v-slot:description />

@@ -110,20 +110,6 @@
           </div>
         </div>
         <div class="SideNavigation-Footer">
-          運営 (50音順)：
-          <br />
-          <div class="SideNavigation-organization">
-            <a
-              href="http://www.code4kitakyushu.org/"
-              target="_blank"
-              rel="noopener"
-            >
-              <img src="/logo-code4Kitakyushu.png" alt="Code for Kitakyushu" />
-            </a>
-            Code for Kitakyushu
-          </div>
-        </div>
-        <div class="SideNavigation-Footer">
           <div class="SideNavigation-organization">
             <a
               href="https://www.ksrp.or.jp/fais/"
@@ -132,7 +118,21 @@
             >
               <img src="/logo-fais.png" alt="FAIS" />
             </a>
-            FAIS 北九州産業学術推進機構
+            北九州産業学術推進機構
+          </div>
+        </div>
+        <div class="SideNavigation-Footer">
+          運営 (50音順)：
+          <br />
+          <div class="SideNavigation-organization">
+            <a
+              href="http://www.code4kitakyushu.org/"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="/logo-code4kitakyushu.png" alt="Code for Kitakyushu" />
+            </a>
+            Code for Kitakyushu
           </div>
         </div>
         <div class="SideNavigation-Footer">
