@@ -29,6 +29,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           cp -f ./data_setup/data.json ./data/data.json
+          cp -f ./data_setup/inspections_summary.json ./data/inspections_summary.json
           rm -rf data_setup
           git config --global user.email secrets.USER_EMAIL
           git config --global user.name UPDATE_BOT
