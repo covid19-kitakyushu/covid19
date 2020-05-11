@@ -23,13 +23,13 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/data_setup
           npm install
-          #node main.js
+          node main.js
           cd $GITHUB_WORKSPACE
           cp -f ./data_setup/data.json ./data/data.json
           cp -f ./data_setup/news.json ./data/news.json
           rm -rf data_setup
-          #git config --global user.email secrets.USER_EMAIL
-          #git config --global user.name UPDATE_BOT
-          #git add .
-          #git commit -m 'UPDATE DATA'
-          #git push origin deploy/resources
+          git config --global user.email secrets.USER_EMAIL
+          git config --global user.name UPDATE_BOT
+          git add .
+          git commit -m 'UPDATE DATA'
+          git push origin deploy/resources
