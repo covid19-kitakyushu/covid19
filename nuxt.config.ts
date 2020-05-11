@@ -19,11 +19,38 @@ const config: Configuration = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、北九州市のオープンデータを活用しています。'
+      },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: '北九州市 新型コロナウイルス感染症ポータルサイト'
+      },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stopcovid19-kitakyusyu.jp'
+        content: 'https://stopcovid19-kitakyushu.jp/'
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: '北九州市 新型コロナウイルス感染症ポータルサイト'
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、北九州市のオープンデータを活用しています。'
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://stopcovid19-kitakyushu.jp/ogp.png'
       },
       {
         hid: 'twitter:card',
@@ -41,14 +68,9 @@ const config: Configuration = {
         content: '@city_kitakyushu'
       },
       {
-        hid: 'fb:app_id',
-        property: 'fb:app_id',
-        content: '166197104765804'
-      },
-      {
-        hid: 'note:card',
-        property: 'note:card',
-        content: 'summary_large_image'
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: 'https://stopcovid19-kitakyushu.jp/ogp.png'
       }
     ],
     link: [
