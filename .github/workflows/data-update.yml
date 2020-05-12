@@ -25,11 +25,83 @@ jobs:
           npm install
           node main.js
           cd $GITHUB_WORKSPACE
-          cp -f ./data_setup/data.json ./data/data.json
-          cp -f ./data_setup/inspections_summary.json ./data/inspections_summary.json
-          rm -rf data_setup
-          git config --global user.email secrets.USER_EMAIL
-          git config --global user.name UPDATE_BOT
-          git add .
-          git commit -m 'UPDATE DATA'
-          git push origin deploy/resources
+          
+  pr-development:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: development
+          path: development
+      - run: |
+          cp -rf ./data_setup/* development/data/
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: development
+          commit-message: BOT; UPDATE DATA
+          title: BOT; UPDATE DATA to development
+          base: development
+          branch: data-bot/development
+          labels: auto_merge
+      - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pr_number }}"
+  pr-staging:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: staging
+          path: staging
+      - run: |
+          cp -rf ./data_setup/* staging/data/
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: staging
+          commit-message: BOT; UPDATE DATA
+          title: BOT; UPDATE DATA to staging
+          base: staging
+          branch: data-bot/staging
+          labels: auto_merge
+      - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pr_number }}"
+  pr-master:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+          path: master
+      - run: |
+          cp -rf ./data_setup/* master/data/
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: master
+          commit-message: BOT; UPDATE DATA
+          title: BOT; UPDATE DATA to master
+          base: master
+          branch: data-bot/master
+          labels: auto_merge
+      - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pr_number }}"
+          
+          
+          #cp -f ./data_setup/data.json ./data/data.json
+          #cp -f ./data_setup/inspections_summary.json ./data/inspections_summary.json
+          #rm -rf data_setup
+          #git config --global user.email secrets.USER_EMAIL
+          #git config --global user.name UPDATE_BOT
+          #git add .
+          #git commit -m 'UPDATE DATA'
+          #git push origin deploy/resources
