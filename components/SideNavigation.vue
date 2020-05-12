@@ -126,7 +126,7 @@
           <br />
           <div class="SideNavigation-organization">
             <a
-              href="http://www.code4kitakyushu.org/"
+              href="https://www.facebook.com/CfKTQ/"
               target="_blank"
               rel="noopener"
             >
