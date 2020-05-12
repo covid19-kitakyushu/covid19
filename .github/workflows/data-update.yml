@@ -24,17 +24,13 @@ jobs:
           cd $GITHUB_WORKSPACE/data_setup
           npm install
           node main.js
-          cd $GITHUB_WORKSPACE
-          
-  pr-development:
-    runs-on: ubuntu-18.04
-    steps:
+      
       - uses: actions/checkout@v2
         with:
           ref: development
           path: development
       - run: |
-          cp -rf ./data_setup/* development/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/* development/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
@@ -49,15 +45,13 @@ jobs:
         run: |
           echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
           echo "Pull Request Number - ${{ steps.cpr.outputs.pr_number }}"
-  pr-staging:
-    runs-on: ubuntu-18.04
-    steps:
+
       - uses: actions/checkout@v2
         with:
           ref: staging
           path: staging
       - run: |
-          cp -rf ./data_setup/* staging/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/* staging/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
@@ -72,15 +66,13 @@ jobs:
         run: |
           echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
           echo "Pull Request Number - ${{ steps.cpr.outputs.pr_number }}"
-  pr-master:
-    runs-on: ubuntu-18.04
-    steps:
+
       - uses: actions/checkout@v2
         with:
           ref: master
           path: master
       - run: |
-          cp -rf ./data_setup/* master/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/* master/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
