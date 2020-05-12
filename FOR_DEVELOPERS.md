@@ -136,8 +136,8 @@ $ docker-compose run --rm app yarn install
 | ブランチ | HTML類がbuildされ、更新されるブランチ | 更新されるWebサイト |
 | ---- | ---- | ---- |
 |`master`|`production`|本番サイト https://stopcovid19-kitakyushu.jp/|
-|`staging`|`dev`|ステージングサイト https://dev.stopcovid19-kitakyushu.jp/|
-|`development`|``|ローカル環境で確認|
+|`staging`|`staging`|ステージングサイト https://dev.stopcovid19-kitakyushu.jp/|
+|`development`||ローカル環境で確認|
 
 ---
 
@@ -155,7 +155,7 @@ Pull Request を送る際のブランチは、以下のネーミングルール�
 
 | 目的 | ブランチ | 確認URL | Pull requestsを出せる人 | 備考 |
 | ---- | ---- | ---- | ---- | ---- |
-| 開発 | development | https://dev-covid19-tokyo.netlify.app/ | 全開発者 | base branch。基本は、この`development`ブランチに Pull Requestを送ってください。 |
+| 開発 | development |  | 全開発者 | base branch。基本は、この`development`ブランチに Pull Requestを送ってください。 |
 | ステージング | staging | https://dev.stopcovid19-kitakyushu.jp/ | 管理者のみ | 本番前の最終確認用。管理者以外の Pull Request は禁止です。 |
 | 本番 | master | https://stopcovid19-kitakyushu.jp/ | 管理者のみ | 管理者以外の Pull Request は禁止です。 |
 
