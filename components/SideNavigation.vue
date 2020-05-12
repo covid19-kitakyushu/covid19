@@ -137,10 +137,10 @@
         </div>
         <div class="SideNavigation-Footer">
           <div class="SideNavigation-organization">
-            <a href="https://froide.co.jp/" target="_blank" rel="noopener">
-              <img src="/logo-froide.png" alt="フロイデ" />
+            <a href="https://freudegizmo.com/" target="_blank" rel="noopener">
+              <img src="/logo-freudegizmo.png" alt="フロイデギズモ" />
             </a>
-            フロイデ株式会社
+            株式会社フロイデギズモ
           </div>
         </div>
         <div class="SideNavigation-Footer">
