@@ -19,8 +19,8 @@
 </template>
 
 <script>
+import formatGraphForPatients from '../../utils/formatGraphForPatients'
 import Data from '@/data/data.json'
-import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import DataTable from '@/components/DataTable.vue'
 
@@ -30,7 +30,7 @@ export default {
   },
   data() {
     // 感染者数グラフ
-    const patientsGraph = formatGraph(Data.patients_summary.data)
+    const patientsGraph = formatGraphForPatients(Data.patients_summary.data)
     // 感染者数
     const patientsTable = formatTable(Data.patients.data)
 
