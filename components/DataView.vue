@@ -37,11 +37,11 @@
         <div class="Footer-Left">
           <slot name="footer" />
           <div>
-            <a class="Permalink" :href="permalink()">
+            <p class="Permalink">
               <time :datetime="formattedDate">
                 {{ $t('{date} 更新', { date }) }}
               </time>
-            </a>
+            </p>
           </div>
         </div>
 
