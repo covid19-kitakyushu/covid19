@@ -163,5 +163,5 @@ Pull Request を送る際のブランチは、以下のネーミングルール�
 
 | 目的 | ブランチ | 確認URL | 備考 |
 | ---- | -------- | ---- | ---- |
-| 本番サイトHTML | production | https://stopcovid19-kitakyushu.jp/ | 静的ビルドされたHTMLが置いてある場所 |
-| ステージングサイト HTML | gh-pages | https://dev.stopcovid19-kitakyushu.jp/ | 静的ビルドされたHTMLが置いてある場所 |
+| 本番サイトHTML | master | https://stopcovid19-kitakyushu.jp/ | 静的ビルドされたHTMLが置いてある場所 |
+| ステージングサイト HTML | staging | https://dev.stopcovid19-kitakyushu.jp/ | 静的ビルドされたHTMLが置いてある場所 |
