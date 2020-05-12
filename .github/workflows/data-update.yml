@@ -2,7 +2,7 @@ name: data update
 
 on:
   schedule:
-    - cron: '0 * * * *' #UTC
+    - cron: '30 * * * *' #UTC
 
 jobs:
   data_update:
@@ -30,7 +30,7 @@ jobs:
           ref: development
           path: development
       - run: |
-          cp -rf $GITHUB_WORKSPACE/data_setup/* development/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/inspections_summary.json development/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
@@ -51,7 +51,7 @@ jobs:
           ref: staging
           path: staging
       - run: |
-          cp -rf $GITHUB_WORKSPACE/data_setup/* staging/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/inspections_summary.json staging/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
@@ -72,7 +72,7 @@ jobs:
           ref: master
           path: master
       - run: |
-          cp -rf $GITHUB_WORKSPACE/data_setup/* master/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/inspections_summary.json master/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
