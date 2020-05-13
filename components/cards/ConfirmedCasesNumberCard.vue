@@ -17,8 +17,8 @@
 </template>
 
 <script>
+import formatGraphForPatients from '../../utils/formatGraphForPatients'
 import Data from '@/data/data.json'
-import formatGraph from '@/utils/formatGraph'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 
 export default {
@@ -27,7 +27,7 @@ export default {
   },
   data() {
     // 感染者数グラフ
-    const patientsGraph = formatGraph(Data.patients_summary.data)
+    const patientsGraph = formatGraphForPatients(Data.patients_summary.data)
 
     const data = {
       Data,
