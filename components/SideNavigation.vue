@@ -364,6 +364,7 @@ export default Vue.extend({
 }
 
 .SideNavigation-HeaderLogo {
+  width: 200px;
   @include lessThan($tiny) {
     width: 100px;
   }
