@@ -84,6 +84,17 @@
             </picture>
           </a>
           <a
+            href="https://www.city.kitakyushu.lg.jp/kouhou/movie_index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
+          >
+            <picture>
+              <source srcset="/youtube.webp" type="image/webp" />
+              <img src="/youtube.png" alt="video" />
+            </picture>
+          </a>
+          <a
             href="https://github.com/covid19-kitakyushu/covid19"
             target="_blank"
             rel="noopener noreferrer"
@@ -219,7 +230,7 @@ export default Vue.extend({
         {
           icon: 'mdi-account-multiple',
           title: this.$t('市民の皆様へ'),
-          link: 'https://www.city.kitakyushu.lg.jp/soumu/k15700105.html'
+          link: 'https://www.city.kitakyushu.lg.jp/kurashi/menu01_00279.html'
         },
         {
           icon: 'mdi-domain',
