@@ -24,7 +24,6 @@ jobs:
           cd $GITHUB_WORKSPACE/data_setup
           npm install
           node main.js
-      
       - uses: actions/checkout@v2
         with:
           ref: development
