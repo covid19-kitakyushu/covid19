@@ -17,12 +17,12 @@ export type GraphDataType = {
 export default (data: DataType[]) => {
   const graphData: GraphDataType[] = []
   const today = new Date()
+  // temporary fix
   const yesterday = new Date(
     today.getFullYear(),
     today.getMonth(),
     today.getDate()
   )
-  console.log(yesterday)
   let patSum = 0
   data
     .filter(d => new Date(d['日付']) < yesterday)
