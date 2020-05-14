@@ -136,8 +136,10 @@ $ docker-compose run --rm app yarn install
 | ブランチ | HTML類がbuildされ、更新されるブランチ | 更新されるWebサイト |
 | ---- | ---- | ---- |
 |`master`|`production`|本番サイト https://stopcovid19-kitakyushu.jp/|
-|`staging`|`staging`|ステージングサイト https://dev.stopcovid19-kitakyushu.jp/|
-|`development`||ローカル環境で確認|
+
+|`staging`|`gh-pages`|ステージングサイト https://dev.stopcovid19-kitakyushu.jp/|
+|`development`|`dev-pages`|ローカル環境で確認|
+
 
 ---
 
