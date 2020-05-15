@@ -84,7 +84,7 @@
             </picture>
           </a>
           <a
-            href="https://www.city.kitakyushu.lg.jp/kouhou/movie_index.html"
+            href="https://www.youtube.com/user/KitakyuMovieChannel"
             target="_blank"
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
