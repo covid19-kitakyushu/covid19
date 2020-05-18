@@ -5,7 +5,7 @@ on:
     - cron: '0 4 * * *' #UTC
 
 jobs:
-  data_create:
+  data_update:
     runs-on: ubuntu-18.04
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -24,26 +24,12 @@ jobs:
           cd $GITHUB_WORKSPACE/data_setup
           npm install
           node main.js
-      - name: artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: data_tmp
-          path: $GITHUB_WORKSPACE/data_setup/data.json
-  
-  pr_dev:
-    needs: data_create
-    runs-on: ubuntu-18.04
-    steps:
       - uses: actions/checkout@v2
         with:
           ref: development
           path: development
-      - name: Download artifact
-        uses: actions/download-artifact@v1
-        with:
-          name: data_tmp
       - run: |
-          cp -rf data_tmp/data.json development/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/data.json development/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
@@ -58,21 +44,12 @@ jobs:
         run: |
           echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
           echo "Pull Request Number - ${{ steps.cpr.outputs.pr_number }}"
-          
-  pr_staging:
-    needs: data_create
-    runs-on: ubuntu-18.04
-    steps:
       - uses: actions/checkout@v2
         with:
           ref: staging
           path: staging
-      - name: Download artifact
-        uses: actions/download-artifact@v1
-        with:
-          name: data_tmp
       - run: |
-          cp -rf data_tmp/data.json staging/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/data.json staging/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
@@ -87,21 +64,12 @@ jobs:
         run: |
           echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
           echo "Pull Request Number - ${{ steps.cpr.outputs.pr_number }}"
-          
-  pr_prod:
-    needs: data_create
-    runs-on: ubuntu-18.04
-    steps:
       - uses: actions/checkout@v2
         with:
           ref: master
           path: master
-      - name: Download artifact
-        uses: actions/download-artifact@v1
-        with:
-          name: data_tmp
       - run: |
-          cp -rf data_tmp/data.json master/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/data.json master/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
