@@ -112,7 +112,7 @@ export default Vue.extend({
       return this.localePath(permalink)
     }
   },
-  mounted() {
+  beforeUpdate() {
     this.showDetails = true
   },
   methods: {
