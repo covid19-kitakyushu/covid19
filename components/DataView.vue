@@ -22,8 +22,19 @@
       <div v-if="this.$slots.dataTable" class="DataView-Details">
         <v-expansion-panels v-if="showDetails" flat>
           <v-expansion-panel>
-            <v-expansion-panel-header @click="toggleDetails">
-              {{ $t('テーブルを表示') }}
+            <v-expansion-panel-header
+              :hide-actions="true"
+              :style="{ transition: 'none' }"
+              @click="toggleDetails"
+            >
+              <template slot:actions>
+                <div class="v-expansion-panel-header__icon">
+                  <v-icon left>mdi-chevron-right</v-icon>
+                </div>
+              </template>
+              <span class="expansion-panel-text">
+                {{ $t('テーブルを表示') }}
+              </span>
             </v-expansion-panel-header>
             <v-expansion-panel-content>
               <slot name="dataTable" />
@@ -62,11 +73,10 @@
     </div>
   </v-card>
 </template>
-
 <script lang="ts">
 import Vue from 'vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
-
+import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 export default Vue.extend({
   props: {
     title: {
@@ -89,140 +99,26 @@ export default Vue.extend({
   },
   data() {
     return {
-      openGraphEmbed: false,
-      displayShare: false,
-      showOverlay: false,
-      showDetails: false
+      showDetails: false,
+      openDetails: false
     }
   },
   computed: {
     formattedDate(): string {
       return convertDatetimeToISO8601Format(this.date)
     },
-    graphEmbedValue(): string {
-      const graphEmbedValue =
-        '<iframe width="560" height="315" src="' +
-        this.permalink(true, true) +
-        '" frameborder="0"></iframe>'
-      return graphEmbedValue
-    },
-    cardElements() {
-      const parent = document.querySelector('.row.DataBlock') as HTMLElement
-      const thisCard = this.$el.closest('.DataCard')
-      const index = Array.prototype.indexOf.call(parent.children, thisCard) + 1
-      const sideIndex = index % 2 === 0 ? index - 1 : index + 1
-
-      const self = document.querySelector(
-        `.DataCard:nth-child(${index}`
-      ) as HTMLElement
-      const side = document.querySelector(`.DataCard:nth-child(${sideIndex}
-      `) as HTMLElement
-      return [self, side]
-    }
-  },
-  watch: {
-    displayShare(isShow: boolean) {
-      if (isShow) {
-        document.documentElement.addEventListener('click', this.toggleShareMenu)
-      } else {
-        document.documentElement.removeEventListener(
-          'click',
-          this.toggleShareMenu
-        )
-      }
+    permalink(): string {
+      const permalink = '/cards/' + this.titleId
+      return this.localePath(permalink)
     }
   },
   mounted() {
     this.showDetails = true
-    window.addEventListener('resize', this.handleCardHeight)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.handleCardHeight)
   },
   methods: {
-    toggleShareMenu(e: Event) {
-      e.stopPropagation()
-      this.displayShare = !this.displayShare
-    },
-    closeShareMenu() {
-      this.displayShare = false
-    },
-    isCopyAvailable() {
-      return !!navigator.clipboard
-    },
-    copyEmbedCode() {
-      const self = this
-      navigator.clipboard.writeText(this.graphEmbedValue).then(() => {
-        self.closeShareMenu()
-
-        self.showOverlay = true
-        setTimeout(() => {
-          self.showOverlay = false
-        }, 2000)
-      })
-    },
-    stopClosingShareMenu(e: Event) {
-      e.stopPropagation()
-    },
-    permalink(host: boolean = false, embed: boolean = false) {
-      let permalink = '/cards/' + this.titleId
-      if (embed) {
-        permalink = permalink + '?embed=true'
-      }
-      permalink = this.localePath(permalink)
-
-      if (host) {
-        permalink = location.protocol + '//' + location.host + permalink
-      }
-      return permalink
-    },
-    twitter() {
-      const url =
-        'https://twitter.com/intent/tweet?text=' +
-        this.title +
-        ' / ' +
-        this.$t('東京都') +
-        this.$t('新型コロナウイルス感染症') +
-        this.$t('対策サイト') +
-        '&url=' +
-        this.permalink(true) +
-        '&' +
-        'hashtags=StopCovid19JP'
-      window.open(url)
-    },
-    facebook() {
-      const url =
-        'https://www.facebook.com/sharer.php?u=' + this.permalink(true)
-      window.open(url)
-    },
-    line() {
-      const url =
-        'https://social-plugins.line.me/lineit/share?url=' +
-        this.permalink(true)
-      window.open(url)
-    },
-    handleCardHeight() {
-      const [self, side] = this.cardElements
-      if (self) {
-        self.style.height = ''
-        self.dataset.height = String(self.offsetHeight)
-      }
-      if (side) {
-        side.style.height = ''
-        side.dataset.height = String(side.offsetHeight)
-      }
-    },
     toggleDetails() {
-      // アコーディオン開閉時にcardの高さを維持する
-      const [self, side] = this.cardElements
-
-      self.dataset.height = self.dataset.height || String(self.offsetHeight)
-      side.dataset.height = side.dataset.height || String(side.offsetHeight)
-
-      self.style.height =
-        self.style.height === `auto` ? `${self.dataset.height}px` : 'auto'
-      side.style.height =
-        side.style.height === 'auto' ? 'auto' : `${side.dataset.height}px`
+      this.openDetails = !this.openDetails
+      EventBus.$emit(TOGGLE_EVENT, { dataView: this.$refs.dataView })
     }
   }
 })
