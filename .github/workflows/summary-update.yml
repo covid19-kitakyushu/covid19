@@ -24,6 +24,7 @@ jobs:
           cd $GITHUB_WORKSPACE/data_setup
           npm install
           node main.js
+          sleep 5
       - uses: actions/checkout@v2
         with:
           ref: development
