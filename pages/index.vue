@@ -23,7 +23,7 @@
     />
     <v-row class="DataBlock">
       <!-- 検査陽性者の状況 -->
-      <!--<confirmed-cases-details-card />-->
+      <confirmed-cases-details-card />
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
       <!-- 検査実施件数 -->
@@ -46,7 +46,7 @@ import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import inspectionsData from '@/data/inspections_summary.json'
 import News from '@/data/news.json'
-// import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
+import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
@@ -58,7 +58,7 @@ export default Vue.extend({
     PageHeader,
     WhatsNew,
     StaticInfo,
-    //    ConfirmedCasesDetailsCard,
+    ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     TestedNumberCard,
