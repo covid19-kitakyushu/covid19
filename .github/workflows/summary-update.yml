@@ -2,7 +2,7 @@ name: data update
 
 on:
   schedule:
-    - cron: '0 4 * * *' #UTC
+    - cron: '58 3 * * *' #UTC
 
 jobs:
   data_update:
@@ -23,7 +23,9 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/data_setup
           npm install
+          sleep 120
           node main.js
+          sleep 5
       - uses: actions/checkout@v2
         with:
           ref: development
