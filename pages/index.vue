@@ -28,6 +28,8 @@
       <confirmed-cases-number-card />
       <!-- 検査実施件数 -->
       <tested-number-card />
+      <!-- 検査実施件数内訳 -->
+      <inspection-breakdown-card />
       <!-- 陽性患者の属性 -->
       <confirmed-cases-attributes-card />
       <!-- コールセンター件数 -->
@@ -52,6 +54,7 @@ import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttri
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import InspectionBreakdownCard from '@/components/cards/InspectionBreakdownCard.vue'
 
 export default Vue.extend({
   components: {
@@ -62,7 +65,8 @@ export default Vue.extend({
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     TestedNumberCard,
-    TelephoneAdvisoryReportsNumberCard
+    TelephoneAdvisoryReportsNumberCard,
+    InspectionBreakdownCard
   },
   data() {
     const lastUpdate =
