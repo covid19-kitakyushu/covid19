@@ -20,6 +20,9 @@
     <tested-number-card
       v-else-if="this.$route.params.card == 'number-of-tested'"
     />
+    <inspection-breakdown-card
+      v-else-if="this.$route.params.card == 'number-of-tested-breakdown'"
+    />
     <inspection-persons-number-card
       v-else-if="this.$route.params.card == 'number-of-inspection-persons'"
     />
@@ -60,6 +63,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+import InspectionBreakdownCard from '@/components/cards/InspectionBreakdownCard.vue'
 
 export default {
   components: {
@@ -70,6 +74,7 @@ export default {
     ConfirmedCasesByMunicipalitiesCard,
     TestedNumberCard,
     InspectionPersonsNumberCard,
+    InspectionBreakdownCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
     MetroCard,
@@ -120,6 +125,10 @@ export default {
         break
       case 'agency':
         title = this.$t('都庁来庁者数の推移')
+        updatedAt = agencyData.date
+        break
+      case 'number-of-tested-breakdown':
+        title = this.$t('検査件数内訳')
         updatedAt = agencyData.date
         break
     }
