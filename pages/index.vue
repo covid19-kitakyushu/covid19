@@ -26,12 +26,12 @@
       <!--<confirmed-cases-details-card />-->
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
+      <!-- 陽性患者の属性 -->
+      <confirmed-cases-attributes-card />
       <!-- 検査実施件数 -->
       <tested-number-card />
       <!-- 検査実施件数内訳 -->
       <inspection-breakdown-card />
-      <!-- 陽性患者の属性 -->
-      <confirmed-cases-attributes-card />
       <!-- コールセンター件数 -->
       <telephone-advisory-reports-number-card />
     </v-row>
