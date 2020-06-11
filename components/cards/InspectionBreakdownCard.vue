@@ -40,13 +40,13 @@ export default {
       inspectionsBreakdown.data['ＰＣＲ検査センター検査件数']
     ]
     const inspectionsBreakdownItems = [
-      this.$t('接触者外来等検査数'),
-      this.$t('検査センター検査数')
+      this.$t('帰国者接触者外来等'),
+      this.$t('ＰＣＲ検査センター')
     ]
     const inspectionsBreakdownLabels = inspectionsBreakdown.labels
     const inspectionsBreakdownDataLabels = [
-      this.$t('接触者外来等検査数'),
-      this.$t('検査センター検査数')
+      this.$t('帰国者接触者外来等'),
+      this.$t('ＰＣＲ検査センター')
     ]
     const data = {
       inspectionsBreakdown,
