@@ -11,7 +11,7 @@
       :unit="$t('件.tested')"
       :data-labels="inspectionsBreakdownDataLabels"
       :url="
-        'https://ckan.open-governmentdata.org/dataset/401005_kitakyushu_covid19_test_count'
+        'https://ckan.open-governmentdata.org/dataset/401005_kitakyushu_covid19_test_count_breakdown'
       "
     >
       <!-- 件.tested = 検査数
