@@ -188,7 +188,7 @@ const config: Configuration = {
   generate: {
     fallback: true,
     routes() {
-      const locales = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
+      const locales = ['ja']
       const pages = [
         '/cards/details-of-confirmed-cases',
         '/cards/details-of-tested-cases',
@@ -200,7 +200,8 @@ const config: Configuration = {
         '/cards/number-of-reports-to-covid19-telephone-advisory-center',
         '/cards/number-of-reports-to-covid19-consultation-desk',
         '/cards/predicted-number-of-toei-subway-passengers',
-        '/cards/agency'
+        '/cards/agency',
+        '/cards/number-of-tested-breakdown'
       ]
 
       const routes: string[] = []
