@@ -3,7 +3,7 @@
     <header class="SideNavigation-Header">
       <v-icon
         class="SideNavigation-OpenIcon"
-        :aria-label="$t('サイドメニュー項目を開く')"
+        :aria-label="'サイドメニュー項目を開く'"
         @click="$emit('openNavi', $event)"
       >
         mdi-menu
@@ -13,12 +13,10 @@
           <img
             class="SideNavigation-HeaderLogo"
             src="/logo.svg"
-            :alt="$t('北九州市')"
+            :alt="'北九州市'"
           />
           <div class="SideNavigation-HeaderText">
-            {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
-              $t('menu/対策サイト')
-            }}
+            {{ '新型コロナウイルス感染症' }}<br />{{ '対策サイト' }}
           </div>
         </nuxt-link>
       </h1>
@@ -27,7 +25,7 @@
     <div :class="['SideNavigation-Body', { '-opened': isNaviOpen }]">
       <v-icon
         class="SideNavigation-CloseIcon"
-        :aria-label="$t('サイドメニュー項目を閉じる')"
+        :aria-label="'サイドメニュー項目を閉じる'"
         @click="$emit('closeNavi', $event)"
       >
         mdi-close
@@ -40,7 +38,7 @@
             class="SideNavigation-Language"
           >
             <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
-              {{ $t('多言語対応選択メニュー') }}
+              {{ '多言語対応選択メニュー' }}
             </label>
             <language-selector />
           </div>
@@ -218,40 +216,40 @@ export default Vue.extend({
       return [
         {
           icon: 'mdi-chart-timeline-variant',
-          title: this.$t('市内の最新感染動向'),
+          title: '市内の最新感染動向',
           link: this.localePath('/')
         },
         {
           icon: 'CovidIcon',
-          title: this.$t('新型コロナウイルス感染症が心配なときに'),
+          title: '新型コロナウイルス感染症が心配なときに',
           link: 'https://www.city.kitakyushu.lg.jp/ho-huku/18901203.html',
           divider: true
         },
         {
           icon: 'mdi-account-multiple',
-          title: this.$t('市民の皆様へ'),
+          title: '市民の皆様へ',
           link: 'https://www.city.kitakyushu.lg.jp/kurashi/menu01_00279.html'
         },
         {
           icon: 'mdi-domain',
-          title: this.$t('企業の皆様・はたらく皆様へ'),
+          title: '企業の皆様・はたらく皆様へ',
           link: 'https://www.city.kitakyushu.lg.jp/ho-huku/18901208.html',
           divider: true
         },
         {
-          title: this.$t('北九州市の取り組み'),
+          title: '北九州市の取り組み',
           link: 'https://www.city.kitakyushu.lg.jp/ho-huku/18901211.html'
         },
         {
-          title: this.$t('当サイトについて'),
+          title: '当サイトについて',
           link: this.localePath('/about')
         },
         {
-          title: this.$t('お問い合わせ先一覧'),
+          title: 'お問い合わせ先一覧',
           link: 'https://www.city.kitakyushu.lg.jp/soumu/333_00002.html'
         },
         {
-          title: this.$t('北九州市ホームページ'),
+          title: '北九州市ホームページ',
           link: 'https://www.city.kitakyushu.lg.jp/'
         }
       ]
