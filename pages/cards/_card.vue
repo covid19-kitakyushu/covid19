@@ -79,6 +79,10 @@ export default {
         title = '検査件数内訳'
         updatedAt = agencyData.date
         break
+      case 'number-of-tested-breakdown':
+        title = this.$t('検査件数内訳')
+        updatedAt = agencyData.date
+        break
     }
 
     const data = {
