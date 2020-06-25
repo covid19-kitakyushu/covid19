@@ -1,8 +1,8 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <client-only :placeholder="$t('読み込み中')">
+    <client-only :placeholder="'読み込み中'">
       <data-table
-        :title="$t('陽性患者の属性')"
+        :title="'陽性患者の属性'"
         :title-id="'attributes-of-confirmed-cases'"
         :chart-data="patientsTable"
         :chart-option="{}"
@@ -11,7 +11,7 @@
         :url="
           'https://ckan.open-governmentdata.org/dataset/401005_kitakyushu_covid19_patients'
         "
-        :source="$t('オープンデータを入手')"
+        :source="'オープンデータを入手'"
         :custom-sort="customSort"
       />
     </client-only>
@@ -41,25 +41,20 @@ export default {
       sText: this.$t('{date}の累計', {
         date: patientsGraph[patientsGraph.length - 1].label
       }),
-      unit: this.$t('人')
+      unit: '人'
     }
 
     // 陽性患者の属性 ヘッダー翻訳
     for (const header of patientsTable.headers) {
-      header.text =
-        header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
+      header.text = header.value === '退院' ? '退院※' : header.value
     }
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
-      row['居住地'] = this.getTranslatedWording(row['居住地'])
-      row['性別'] = this.getTranslatedWording(row['性別'])
-      row['退院'] = this.getTranslatedWording(row['退院'])
-
       if (row['年代'].substr(-1, 1) === '代') {
-        const age = row['年代'].substring(0, 2)
-        row['年代'] = this.$t('{age}代', { age })
-      } else {
-        row['年代'] = this.$t(row['年代'])
+        const len = row['年代'].length - 1
+        const age = row['年代'].substring(0, len)
+        // row['年代'] = this.$t('{age}代', { age })
+        row['年代'] = `${age}代`
       }
     }
 
@@ -84,10 +79,11 @@ export default {
       return this.$t(value)
     },
     customSort(items, index, isDesc) {
-      const lt10 = this.$t('10歳未満').toString()
-      const lt100 = this.$t('100歳以上').toString()
-      const unknown = this.$t('不明').toString()
-      const investigating = this.$t('調査中').toString()
+      const age0 = '0歳児'.toString()
+      const lt10 = '10歳未満'.toString()
+      const lt100 = '100代'.toString()
+      const unknown = '不明'.toString()
+      const investigating = '調査中'.toString()
       items.sort((a, b) => {
         // 両者が等しい場合は 0 を返す
         if (a[index[0]] === b[index[0]]) {
@@ -98,7 +94,14 @@ export default {
 
         // '10歳未満' < '10代' ... '90代' < '100歳以上' となるようにソートする
         // 「10歳未満」同士を比較する場合、と「100歳以上」同士を比較する場合、更にそうでない場合に場合分け
-        if (
+        if (index[0] === '年代' && (a[index[0]] === '' || b[index[0]] === '')) {
+          comparison = a[index[0]] === '' ? -1 : 1
+        } else if (
+          index[0] === '年代' &&
+          (a[index[0]] === age0 || b[index[0]] === age0)
+        ) {
+          comparison = a[index[0]] === age0 ? -1 : 1
+        } else if (
           index[0] === '年代' &&
           (a[index[0]] === lt10 || b[index[0]] === lt10)
         ) {

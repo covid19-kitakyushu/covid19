@@ -1,14 +1,14 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-stacked-bar-chart
-      :title="$t('検査実施件数内訳')"
+      :title="'検査実施件数内訳'"
       :title-id="'number-of-tested-breakdown'"
       :chart-id="'time-stacked-bar-chart-inspections-breakdown'"
       :chart-data="inspectionsBreakdownGraph"
       :date="inspectionsBreakdown.last_update"
       :items="inspectionsBreakdownItems"
       :labels="inspectionsBreakdownLabels"
-      :unit="$t('件.tested')"
+      :unit="'件'"
       :data-labels="inspectionsBreakdownDataLabels"
       :url="
         'https://ckan.open-governmentdata.org/dataset/401005_kitakyushu_covid19_test_count_breakdown'
@@ -40,13 +40,13 @@ export default {
       inspectionsBreakdown.data['ＰＣＲ検査センター検査件数']
     ]
     const inspectionsBreakdownItems = [
-      this.$t('帰国者接触者外来等'),
-      this.$t('ＰＣＲ検査センター')
+      '帰国者接触者外来等',
+      'ＰＣＲ検査センター'
     ]
     const inspectionsBreakdownLabels = inspectionsBreakdown.labels
     const inspectionsBreakdownDataLabels = [
-      this.$t('帰国者接触者外来等'),
-      this.$t('ＰＣＲ検査センター')
+      '帰国者接触者外来等',
+      'ＰＣＲ検査センター'
     ]
     const data = {
       inspectionsBreakdown,
