@@ -115,7 +115,7 @@ export default Vue.extend({
         {
           hid: 'author',
           name: 'author',
-          content: this.$tc('北九州市')
+          content: '北九州市'
         },
         {
           hid: 'description',
@@ -123,19 +123,13 @@ export default Vue.extend({
           content:
             convertDateToSimpleFormat(Data.lastUpdate) +
             ' 更新：　' +
-            this.$tc(
-              '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、北九州市が開設したものです。'
-            )
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、北九州市が開設したものです。'
         },
         {
           hid: 'og:site_name',
           property: 'og:site_name',
           content:
-            this.$t('北九州市') +
-            ' ' +
-            this.$t('新型コロナウイルス感染症') +
-            ' ' +
-            this.$t('対策サイト')
+            '北九州市' + ' ' + '新型コロナウイルス感染症' + ' ' + '対策サイト'
         },
         {
           hid: 'og:url',
@@ -147,11 +141,7 @@ export default Vue.extend({
           hid: 'og:title',
           property: 'og:title',
           content:
-            this.$t('北九州市') +
-            ' ' +
-            this.$t('新型コロナウイルス感染症') +
-            ' ' +
-            this.$t('対策サイト')
+            '北九州市' + ' ' + '新型コロナウイルス感染症' + ' ' + '対策サイト'
         },
         {
           hid: 'og:description',
@@ -159,9 +149,7 @@ export default Vue.extend({
           content:
             convertDateToSimpleFormat(Data.lastUpdate) +
             ' 更新：　' +
-            this.$tc(
-              '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、北九州市が開設したものです。'
-            )
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、北九州市が開設したものです。'
         },
         {
           hid: 'og:image',
@@ -172,11 +160,7 @@ export default Vue.extend({
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
           content:
-            this.$t('北九州市') +
-            ' ' +
-            this.$t('新型コロナウイルス感染症') +
-            ' ' +
-            this.$t('対策サイト')
+            '北九州市' + ' ' + '新型コロナウイルス感染症' + ' ' + '対策サイト'
         },
         {
           hid: 'twitter:image',
