@@ -51,7 +51,8 @@ export default {
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
       if (row['年代'].substr(-1, 1) === '代') {
-        const age = row['年代'].substring(0, 2)
+        const len = row['年代'].length - 1
+        const age = row['年代'].substring(0, len)
         // row['年代'] = this.$t('{age}代', { age })
         row['年代'] = `${age}代`
       }
@@ -78,8 +79,9 @@ export default {
       return this.$t(value)
     },
     customSort(items, index, isDesc) {
+      const age0 = '0歳児'.toString()
       const lt10 = '10歳未満'.toString()
-      const lt100 = '100歳以上'.toString()
+      const lt100 = '100代'.toString()
       const unknown = '不明'.toString()
       const investigating = '調査中'.toString()
       items.sort((a, b) => {
@@ -92,7 +94,14 @@ export default {
 
         // '10歳未満' < '10代' ... '90代' < '100歳以上' となるようにソートする
         // 「10歳未満」同士を比較する場合、と「100歳以上」同士を比較する場合、更にそうでない場合に場合分け
-        if (
+        if (index[0] === '年代' && (a[index[0]] === '' || b[index[0]] === '')) {
+          comparison = a[index[0]] === '' ? -1 : 1
+        } else if (
+          index[0] === '年代' &&
+          (a[index[0]] === age0 || b[index[0]] === age0)
+        ) {
+          comparison = a[index[0]] === age0 ? -1 : 1
+        } else if (
           index[0] === '年代' &&
           (a[index[0]] === lt10 || b[index[0]] === lt10)
         ) {
