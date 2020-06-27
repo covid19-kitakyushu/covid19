@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <time-stacked-bar-chart
+    <inspector-breakdown-bar-chart
       :title="'検査実施件数内訳'"
       :title-id="'number-of-tested-breakdown'"
       :chart-id="'time-stacked-bar-chart-inspections-breakdown'"
@@ -22,31 +22,34 @@
         {{ $t('※2: チャーター便・クルーズ船') }}
       </template>
       -->
-    </time-stacked-bar-chart>
+    </inspector-breakdown-bar-chart>
   </v-col>
 </template>
 
 <script>
 import inspectionsBreakdown from '@/data/inspections_breakdown.json'
-import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
+import InspectorBreakdownBarChart from '@/components/InspectorBreakdownBarChart.vue'
 export default {
   components: {
-    TimeStackedBarChart
+    InspectorBreakdownBarChart
   },
   data() {
     // 検査実施日別状況
     const inspectionsBreakdownGraph = [
       inspectionsBreakdown.data['帰国者接触者外来等検査件数'],
-      inspectionsBreakdown.data['ＰＣＲ検査センター検査件数']
+      inspectionsBreakdown.data['ＰＣＲ検査センター検査件数'],
+      inspectionsBreakdown.data['民間検査機関検査件数']
     ]
     const inspectionsBreakdownItems = [
       '帰国者接触者外来等',
-      'ＰＣＲ検査センター'
+      'ＰＣＲ検査センター',
+      '民間検査機関'
     ]
     const inspectionsBreakdownLabels = inspectionsBreakdown.labels
     const inspectionsBreakdownDataLabels = [
       '帰国者接触者外来等',
-      'ＰＣＲ検査センター'
+      'ＰＣＲ検査センター',
+      '民間検査機関'
     ]
     const data = {
       inspectionsBreakdown,
