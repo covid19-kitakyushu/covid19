@@ -3,15 +3,8 @@
     <template v-slot:button>
       <ul :class="$style.GraphDesc">
         <li>
-          {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
+          {{ '（注）同一の対象者について複数の検体を検査する場合あり' }}
         </li>
-        <!--<li>
-          {{
-            $t(
-              '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
-            )
-          }}
-        </li>-->
       </ul>
       <data-selector
         v-model="dataKind"
@@ -41,7 +34,7 @@
       </li>
     </ul>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
-      {{ $t(`{title}のグラフ`, { title }) }}
+      {{ `${title}のグラフ` }}
     </h4>
     <div class="LegendStickyChart">
       <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
@@ -91,6 +84,8 @@
               <td class="text-end">{{ item['1'] }}</td>
               <td class="text-end">{{ item['2'] }}</td>
               <td class="text-end">{{ item['3'] }}</td>
+              <td class="text-end">{{ item['4'] }}</td>
+              <td class="text-end">{{ item['5'] }}</td>
             </tr>
           </tbody>
         </template>
@@ -252,17 +247,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       if (this.dataKind === 'transition') {
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
-          sText: `${this.$t('{date}の合計', {
-            date: this.labels[this.labels.length - 1]
-          })}` /* （${this.$t('医療機関が保険適用で行った検査は含まれていない')}）` */,
+          sText: `${this.labels[this.labels.length - 1]}の合計`,
           unit: this.unit
         }
       }
       return {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
-        sText: `${this.$t('{date}の全体累計', {
-          date: this.labels[this.labels.length - 1]
-        })}`,
+        sText: `${this.labels[this.labels.length - 1]}の全体累計`,
         unit: this.unit
       }
     },
@@ -297,7 +288,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     tableHeaders() {
       return [
-        { text: this.$t('日付'), value: 'text' },
+        { text: '日付', value: 'text' },
         ...(this.dataLabels as string[])
           .reduce((arr, text) => {
             arr.push(
@@ -362,7 +353,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               }
               return `${
                 this.dataLabels[tooltipItem.datasetIndex!]
-              }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
+              }: ${cases} ${unit} (合計: ${casesTotal} ${unit})`
             },
             title(tooltipItem, data) {
               return String(data.labels![tooltipItem[0].index!])
@@ -447,7 +438,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       for (const i in this.displayData.datasets[0].data) {
         const current =
           this.displayData.datasets[0].data[i] +
-          this.displayData.datasets[1].data[i]
+          this.displayData.datasets[1].data[i] +
+          this.displayData.datasets[2].data[i]
         if (current > max) {
           max = current
           n = Number(i)
@@ -463,6 +455,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           },
           {
             data: [this.displayData.datasets[1].data[n]],
+            backgroundColor: 'transparent',
+            borderWidth: 0
+          },
+          {
+            data: [this.displayData.datasets[2].data[n]],
             backgroundColor: 'transparent',
             borderWidth: 0
           }
@@ -559,7 +556,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     scaledTicksYAxisMax() {
       let max = 0
       for (const i in this.chartData[0]) {
-        max = Math.max(max, this.chartData[0][i] + this.chartData[1][i])
+        max = Math.max(
+          max,
+          this.chartData[0][i] + this.chartData[1][i] + this.chartData[2][i]
+        )
       }
       return max
     }
@@ -598,7 +598,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     eachArraySum(chartDataArray: number[][]) {
       const sumArray: number[] = []
       for (let i = 0; i < chartDataArray[0].length; i++) {
-        sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
+        sumArray.push(
+          chartDataArray[0][i] + chartDataArray[1][i] + chartDataArray[2][i]
+        )
       }
       return sumArray
     }
