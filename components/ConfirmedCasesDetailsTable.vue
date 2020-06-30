@@ -60,15 +60,6 @@
         </li>
         <li :class="[$style.box]">
           <div :class="$style.content">
-            <span>{{ '自宅療養' }}</span>
-            <span>
-              <strong>{{ 自宅療養 }}</strong>
-              <span :class="$style.unit">{{ '人' }}</span>
-            </span>
-          </div>
-        </li>
-        <li :class="[$style.box]">
-          <div :class="$style.content">
             <span>{{ '入院・療養等調整中' }}</span>
             <span>
               <strong>{{ 調整中 }}</strong>
@@ -129,10 +120,6 @@ export default Vue.extend({
       required: true
     },
     確認中: {
-      type: Number,
-      required: true
-    },
-    自宅療養: {
       type: Number,
       required: true
     },
