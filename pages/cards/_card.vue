@@ -79,10 +79,6 @@ export default {
         title = '検査件数内訳'
         updatedAt = agencyData.date
         break
-      case 'number-of-tested-breakdown':
-        title = this.$t('検査件数内訳')
-        updatedAt = agencyData.date
-        break
     }
 
     const data = {
@@ -119,7 +115,7 @@ export default {
             '北九州市' +
             ' ' +
             '新型コロナウイルス感染症' +
-            '対策サイト'
+            '情報サイト'
         },
         {
           hid: 'description',
