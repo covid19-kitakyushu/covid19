@@ -129,7 +129,7 @@ export default Vue.extend({
           hid: 'og:site_name',
           property: 'og:site_name',
           content:
-            '北九州市' + ' ' + '新型コロナウイルス感染症' + ' ' + '対策サイト'
+            '北九州市' + ' ' + '新型コロナウイルス感染症' + ' ' + '情報サイト'
         },
         {
           hid: 'og:url',
@@ -141,7 +141,7 @@ export default Vue.extend({
           hid: 'og:title',
           property: 'og:title',
           content:
-            '北九州市' + ' ' + '新型コロナウイルス感染症' + ' ' + '対策サイト'
+            '北九州市' + ' ' + '新型コロナウイルス感染症' + ' ' + '情報サイト'
         },
         {
           hid: 'og:description',
@@ -160,7 +160,7 @@ export default Vue.extend({
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
           content:
-            '北九州市' + ' ' + '新型コロナウイルス感染症' + ' ' + '対策サイト'
+            '北九州市' + ' ' + '新型コロナウイルス感染症' + ' ' + '情報サイト'
         },
         {
           hid: 'twitter:image',

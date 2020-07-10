@@ -16,7 +16,7 @@
             :alt="'北九州市'"
           />
           <div class="SideNavigation-HeaderText">
-            {{ '新型コロナウイルス感染症' }}<br />{{ '対策サイト' }}
+            {{ '新型コロナウイルス感染症' }}<br />{{ '情報サイト' }}
           </div>
         </nuxt-link>
       </h1>

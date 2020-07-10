@@ -15,7 +15,7 @@ const config: Configuration = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s | 北九州市 新型コロナウイルス感染症対策サイト',
+    titleTemplate: '%s | 北九州市 新型コロナウイルス感染症情報サイト',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -177,7 +177,7 @@ const config: Configuration = {
     // hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
-    name: '北九州市 新型コロナウイルス感染症対策サイト',
+    name: '北九州市 新型コロナウイルス感染症情報サイト',
     theme_color: '#24448c',
     background_color: '#ffffff',
     display: 'standalone',
