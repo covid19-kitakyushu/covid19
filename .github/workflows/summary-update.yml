@@ -32,6 +32,8 @@ jobs:
           path: development
       - run: |
           cp -rf $GITHUB_WORKSPACE/data_setup/data.json development/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/inspections_summary.json development/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/inspections_breakdown.json development/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
@@ -52,6 +54,8 @@ jobs:
           path: staging
       - run: |
           cp -rf $GITHUB_WORKSPACE/data_setup/data.json staging/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/inspections_summary.json staging/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/inspections_breakdown.json staging/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
@@ -72,6 +76,8 @@ jobs:
           path: master
       - run: |
           cp -rf $GITHUB_WORKSPACE/data_setup/data.json master/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/inspections_summary.json master/data/
+          cp -rf $GITHUB_WORKSPACE/data_setup/inspections_breakdown.json master/data/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:

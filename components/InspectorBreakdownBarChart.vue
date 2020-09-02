@@ -309,7 +309,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           return Object.assign(
             { text: label },
             ...this.tableHeaders.map((_, j) => {
-              const index = j < 2 ? 0 : 1
+              const index = j < 2 ? 0 : j < 3 ? 1 : 2
               const transition = this.chartData[index]
               const cumulative = this.cumulative(transition)
               return {
