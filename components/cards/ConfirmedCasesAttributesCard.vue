@@ -84,6 +84,12 @@ export default {
       const lt100 = '100代'.toString()
       const unknown = '不明'.toString()
       const investigating = '調査中'.toString()
+      const emptystring = ''.toString()
+      const hyphen1 = '-'.toString()
+      const hyphen2 = '‐'.toString()
+      const dash = '―'.toString()
+      const longvowel = 'ー'.toString()
+
       items.sort((a, b) => {
         // 両者が等しい場合は 0 を返す
         if (a[index[0]] === b[index[0]]) {
@@ -94,9 +100,7 @@ export default {
 
         // '10歳未満' < '10代' ... '90代' < '100歳以上' となるようにソートする
         // 「10歳未満」同士を比較する場合、と「100歳以上」同士を比較する場合、更にそうでない場合に場合分け
-        if (index[0] === '年代' && (a[index[0]] === '' || b[index[0]] === '')) {
-          comparison = a[index[0]] === '' ? -1 : 1
-        } else if (
+        if (
           index[0] === '年代' &&
           (a[index[0]] === age0 || b[index[0]] === age0)
         ) {
@@ -133,6 +137,26 @@ export default {
           } else if (aDate[0] < bDate[0]) {
             comparison = -1
           }
+        }
+
+        // 各項目で共通する要素のソート
+        // 項目別の要素より大きい値として扱う
+        // '-' < '‐' < '―' < 'ー' < ''(空文字) < '調査中' < '不明' となるようにソートする
+
+        if (a[index[0]] === hyphen1 || b[index[0]] === hyphen1) {
+          comparison = a[index[0]] === hyphen1 ? 1 : -1
+        }
+        if (a[index[0]] === hyphen2 || b[index[0]] === hyphen2) {
+          comparison = a[index[0]] === hyphen2 ? 1 : -1
+        }
+        if (a[index[0]] === dash || b[index[0]] === dash) {
+          comparison = a[index[0]] === dash ? 1 : -1
+        }
+        if (a[index[0]] === longvowel || b[index[0]] === longvowel) {
+          comparison = a[index[0]] === longvowel ? 1 : -1
+        }
+        if (a[index[0]] === emptystring || b[index[0]] === emptystring) {
+          comparison = a[index[0]] === emptystring ? 1 : -1
         }
 
         // 「調査中」は年代に限らず、居住地にも存在するので、年代ソートの外に置いている。
