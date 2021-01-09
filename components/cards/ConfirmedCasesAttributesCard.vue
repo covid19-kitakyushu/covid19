@@ -142,35 +142,23 @@ export default {
         // 各項目で共通する要素のソート
         // 項目別の要素より大きい値として扱う
         // '-' < '‐' < '―' < 'ー' < ''(空文字) < '調査中' < '不明' となるようにソートする
-
-        if (a[index[0]] === hyphen1 || b[index[0]] === hyphen1) {
-          comparison = a[index[0]] === hyphen1 ? 1 : -1
-        }
-        if (a[index[0]] === hyphen2 || b[index[0]] === hyphen2) {
-          comparison = a[index[0]] === hyphen2 ? 1 : -1
-        }
-        if (a[index[0]] === dash || b[index[0]] === dash) {
-          comparison = a[index[0]] === dash ? 1 : -1
-        }
-        if (a[index[0]] === longvowel || b[index[0]] === longvowel) {
-          comparison = a[index[0]] === longvowel ? 1 : -1
-        }
-        if (a[index[0]] === emptystring || b[index[0]] === emptystring) {
-          comparison = a[index[0]] === emptystring ? 1 : -1
-        }
-
-        // 「調査中」は年代に限らず、居住地にも存在するので、年代ソートの外に置いている。
-        // 内容としては、「不明」の次に高い(大きい)ものとして扱う。
-        // 日本語の場合、「調査中」は「不明」より低い(小さい)ものとして扱われるが、
-        // 他言語の場合はそうではないため、ここで統一している。
-        if (a[index[0]] === investigating || b[index[0]] === investigating) {
-          comparison = a[index[0]] === investigating ? 1 : -1
-        }
-
-        // 「不明」は年代に限らず、性別にも存在するので、年代ソートの外に置いている。
-        // 内容としては一番高い(大きい)ものとして扱う。
         if (a[index[0]] === unknown || b[index[0]] === unknown) {
           comparison = a[index[0]] === unknown ? 1 : -1
+        } else if (
+          a[index[0]] === investigating ||
+          b[index[0]] === investigating
+        ) {
+          comparison = a[index[0]] === investigating ? 1 : -1
+        } else if (a[index[0]] === emptystring || b[index[0]] === emptystring) {
+          comparison = a[index[0]] === emptystring ? 1 : -1
+        } else if (a[index[0]] === longvowel || b[index[0]] === longvowel) {
+          comparison = a[index[0]] === longvowel ? 1 : -1
+        } else if (a[index[0]] === dash || b[index[0]] === dash) {
+          comparison = a[index[0]] === dash ? 1 : -1
+        } else if (a[index[0]] === hyphen2 || b[index[0]] === hyphen2) {
+          comparison = a[index[0]] === hyphen2 ? 1 : -1
+        } else if (a[index[0]] === hyphen1 || b[index[0]] === hyphen1) {
+          comparison = a[index[0]] === hyphen1 ? 1 : -1
         }
 
         return isDesc[0] ? comparison * -1 : comparison
