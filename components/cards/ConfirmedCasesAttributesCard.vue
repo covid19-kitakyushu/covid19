@@ -85,10 +85,10 @@ export default {
       const unknown = '不明'.toString()
       const investigating = '調査中'.toString()
       const emptystring = ''.toString()
-      const hyphen1 = '-'.toString()
-      const hyphen2 = '‐'.toString()
+      const hyphenMinus = '-'.toString()
+      const hyphen = '‐'.toString()
       const dash = '―'.toString()
-      const longvowel = 'ー'.toString()
+      const longVowel = 'ー'.toString()
 
       items.sort((a, b) => {
         // 両者が等しい場合は 0 を返す
@@ -151,14 +151,14 @@ export default {
           comparison = a[index[0]] === investigating ? 1 : -1
         } else if (a[index[0]] === emptystring || b[index[0]] === emptystring) {
           comparison = a[index[0]] === emptystring ? 1 : -1
-        } else if (a[index[0]] === longvowel || b[index[0]] === longvowel) {
-          comparison = a[index[0]] === longvowel ? 1 : -1
+        } else if (a[index[0]] === longVowel || b[index[0]] === longVowel) {
+          comparison = a[index[0]] === longVowel ? 1 : -1
         } else if (a[index[0]] === dash || b[index[0]] === dash) {
           comparison = a[index[0]] === dash ? 1 : -1
-        } else if (a[index[0]] === hyphen2 || b[index[0]] === hyphen2) {
-          comparison = a[index[0]] === hyphen2 ? 1 : -1
-        } else if (a[index[0]] === hyphen1 || b[index[0]] === hyphen1) {
-          comparison = a[index[0]] === hyphen1 ? 1 : -1
+        } else if (a[index[0]] === hyphen || b[index[0]] === hyphen) {
+          comparison = a[index[0]] === hyphen ? 1 : -1
+        } else if (a[index[0]] === hyphenMinus || b[index[0]] === hyphenMinus) {
+          comparison = a[index[0]] === hyphenMinus ? 1 : -1
         }
 
         return isDesc[0] ? comparison * -1 : comparison
