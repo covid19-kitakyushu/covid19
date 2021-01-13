@@ -84,6 +84,12 @@ export default {
       const lt100 = '100代'.toString()
       const unknown = '不明'.toString()
       const investigating = '調査中'.toString()
+      const emptystring = ''.toString()
+      const hyphenMinus = '-'.toString()
+      const hyphen = '‐'.toString()
+      const dash = '―'.toString()
+      const longVowel = 'ー'.toString()
+
       items.sort((a, b) => {
         // 両者が等しい場合は 0 を返す
         if (a[index[0]] === b[index[0]]) {
@@ -94,9 +100,7 @@ export default {
 
         // '10歳未満' < '10代' ... '90代' < '100歳以上' となるようにソートする
         // 「10歳未満」同士を比較する場合、と「100歳以上」同士を比較する場合、更にそうでない場合に場合分け
-        if (index[0] === '年代' && (a[index[0]] === '' || b[index[0]] === '')) {
-          comparison = a[index[0]] === '' ? -1 : 1
-        } else if (
+        if (
           index[0] === '年代' &&
           (a[index[0]] === age0 || b[index[0]] === age0)
         ) {
@@ -135,18 +139,26 @@ export default {
           }
         }
 
-        // 「調査中」は年代に限らず、居住地にも存在するので、年代ソートの外に置いている。
-        // 内容としては、「不明」の次に高い(大きい)ものとして扱う。
-        // 日本語の場合、「調査中」は「不明」より低い(小さい)ものとして扱われるが、
-        // 他言語の場合はそうではないため、ここで統一している。
-        if (a[index[0]] === investigating || b[index[0]] === investigating) {
-          comparison = a[index[0]] === investigating ? 1 : -1
-        }
-
-        // 「不明」は年代に限らず、性別にも存在するので、年代ソートの外に置いている。
-        // 内容としては一番高い(大きい)ものとして扱う。
+        // 各項目で共通する要素のソート
+        // 項目別の要素より大きい値として扱う
+        // '-' < '‐' < '―' < 'ー' < ''(空文字) < '調査中' < '不明' となるようにソートする
         if (a[index[0]] === unknown || b[index[0]] === unknown) {
           comparison = a[index[0]] === unknown ? 1 : -1
+        } else if (
+          a[index[0]] === investigating ||
+          b[index[0]] === investigating
+        ) {
+          comparison = a[index[0]] === investigating ? 1 : -1
+        } else if (a[index[0]] === emptystring || b[index[0]] === emptystring) {
+          comparison = a[index[0]] === emptystring ? 1 : -1
+        } else if (a[index[0]] === longVowel || b[index[0]] === longVowel) {
+          comparison = a[index[0]] === longVowel ? 1 : -1
+        } else if (a[index[0]] === dash || b[index[0]] === dash) {
+          comparison = a[index[0]] === dash ? 1 : -1
+        } else if (a[index[0]] === hyphen || b[index[0]] === hyphen) {
+          comparison = a[index[0]] === hyphen ? 1 : -1
+        } else if (a[index[0]] === hyphenMinus || b[index[0]] === hyphenMinus) {
+          comparison = a[index[0]] === hyphenMinus ? 1 : -1
         }
 
         return isDesc[0] ? comparison * -1 : comparison
