@@ -39,10 +39,10 @@ export default (data: DataType[]) => {
   }
   data.forEach(d => {
     const TableRow: TableDataType = {
-      公表日: dayjs(d['リリース日']).format('YYYY/M/D') ?? '不明',
-      居住地: d['居住地'] ?? '調査中',
-      年代: d['年代'] ?? '不明',
-      性別: d['性別'] ?? '不明'
+      公表日: dayjs(d['リリース日']).format('YYYY/M/D') ?? '－',
+      居住地: d['居住地'] ?? '－',
+      年代: d['年代'] ?? '－',
+      性別: d['性別'] ?? '－'
     }
     tableDate.datasets.push(TableRow)
   })
