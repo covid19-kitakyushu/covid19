@@ -48,7 +48,9 @@ export default {
     for (const header of patientsTable.headers) {
       header.text = this.$t(header.value)
     }
+
     // 陽性患者の属性 中身の翻訳
+    const noDataPattern = ['', '-', '‐', '－', '―', 'ー']
     for (const row of patientsTable.datasets) {
       if (row['年代'].substr(-1, 1) === '代') {
         const len = row['年代'].length - 1
@@ -56,6 +58,11 @@ export default {
         // row['年代'] = this.$t('{age}代', { age })
         row['年代'] = `${age}代`
       }
+      // 空文字ハイフンやマイナスのデータがあれば統一して'－'にする
+      if (noDataPattern.includes(row['年代'])) row['年代'] = '－'
+      if (noDataPattern.includes(row['居住地'])) row['居住地'] = '－'
+      if (noDataPattern.includes(row['性別'])) row['性別'] = '－'
+      if (noDataPattern.includes(row['公表日'])) row['公表日'] = '－'
     }
 
     const data = {
@@ -84,11 +91,7 @@ export default {
       const lt100 = '100代'.toString()
       const unknown = '不明'.toString()
       const investigating = '調査中'.toString()
-      const emptystring = ''.toString()
-      const hyphenMinus = '-'.toString()
-      const hyphen = '‐'.toString()
-      const dash = '―'.toString()
-      const longVowel = 'ー'.toString()
+      const hyphen = '－'.toString()
 
       items.sort((a, b) => {
         // 両者が等しい場合は 0 を返す
@@ -141,7 +144,8 @@ export default {
 
         // 各項目で共通する要素のソート
         // 項目別の要素より大きい値として扱う
-        // '-' < '‐' < '―' < 'ー' < ''(空文字) < '調査中' < '不明' となるようにソートする
+        // 以下のような大小関係となるようにする
+        // '－' < '調査中' < '不明'
         if (a[index[0]] === unknown || b[index[0]] === unknown) {
           comparison = a[index[0]] === unknown ? 1 : -1
         } else if (
@@ -149,16 +153,8 @@ export default {
           b[index[0]] === investigating
         ) {
           comparison = a[index[0]] === investigating ? 1 : -1
-        } else if (a[index[0]] === emptystring || b[index[0]] === emptystring) {
-          comparison = a[index[0]] === emptystring ? 1 : -1
-        } else if (a[index[0]] === longVowel || b[index[0]] === longVowel) {
-          comparison = a[index[0]] === longVowel ? 1 : -1
-        } else if (a[index[0]] === dash || b[index[0]] === dash) {
-          comparison = a[index[0]] === dash ? 1 : -1
         } else if (a[index[0]] === hyphen || b[index[0]] === hyphen) {
           comparison = a[index[0]] === hyphen ? 1 : -1
-        } else if (a[index[0]] === hyphenMinus || b[index[0]] === hyphenMinus) {
-          comparison = a[index[0]] === hyphenMinus ? 1 : -1
         }
 
         return isDesc[0] ? comparison * -1 : comparison
